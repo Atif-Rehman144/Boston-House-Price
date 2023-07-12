@@ -1,3 +1,6 @@
 # Boston-House-Price
 
-create a virtual environment
+Create a new environment
+'''
+conda create -p venv
+'''
