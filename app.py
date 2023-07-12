@@ -23,6 +23,13 @@ def predict_api():
     print(output[0])
     return jsonify(output[0])
 
+@app.route('/predict', methods=['Post'])
+def predict():
+    data=[float(x) for x in request.form.values()]
+    scaled_inp=scalar.transform(np.array(data).reshape(1,-1))
+    print(scaled_inp)
+    predicted=rfmodel.predict(scaled_inp)
+    return render_template('home.html',prediction_text="The house price is(in 1000s dollars) {}".format(predicted))
 
 
 if __name__=="__main__":

@@ -1,3 +1,79 @@
-<h1>
-    test
-</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Boston House Price Prediction</title>
+    <style>
+        .form-control {
+            max-width: 300px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1 class="text-center mt-5">Boston House Price Prediction</h1>
+    <form action="{{ url_for('predict') }}" method="post" class="mt-5">
+        <div class="mb-3">
+            <label for="CRIM" class="form-label">CRIM</label>
+            <input type="number" class="form-control" id="CRIM" name="CRIM" required value="{{ data[0] if data else '' }}">
+        </div>
+        <div class="mb-3">
+            <label for="ZN" class="form-label">ZN</label>
+            <input type="number" class="form-control" id="ZN" name="ZN" required value="{{ data[1] if data else '' }}">
+        </div>
+        <!-- Similarly for other fields -->
+        <div class="mb-3">
+            <label for="INDUS" class="form-label">INDUS</label>
+            <input type="number" class="form-control" id="INDUS" name="INDUS" required value="{{ data[2] if data else '' }}">
+        </div>
+        <div class="mb-3">
+            <label for="CHAS" class="form-label">CHAS</label>
+            <input type="number" class="form-control" id="CHAS" name="CHAS" required value="{{ data[3] if data else '' }}">
+        </div>
+        <div class="mb-3">
+            <label for="NOX" class="form-label">NOX</label>
+            <input type="number" class="form-control" id="NOX" name="NOX" required value="{{ data[4] if data else '' }}">
+        </div>
+        <div class="mb-3">
+            <label for="RM" class="form-label">RM</label>
+            <input type="number" class="form-control" id="RM" name="RM" required value="{{ data[5] if data else '' }}">
+        </div>
+        <div class="mb-3">
+            <label for="AGE" class="form-label">AGE</label>
+            <input type="number" class="form-control" id="AGE" name="AGE" required value="{{ data[6] if data else '' }}">
+        </div>
+        <div class="mb-3">
+            <label for="DIS" class="form-label">DIS</label>
+            <input type="number" class="form-control" id="DIS" name="DIS" required value="{{ data[7] if data else '' }}">
+        </div>
+        <div class="mb-3">
+            <label for="RAD" class="form-label">RAD</label>
+            <input type="number" class="form-control" id="RAD" name="RAD" required value="{{ data[8] if data else '' }}">
+        </div>
+        <div class="mb-3">
+            <label for="TAX" class="form-label">TAX</label>
+            <input type="number" class="form-control" id="TAX" name="TAX" required value="{{ data[9] if data else '' }}">
+        </div>
+        <div class="mb-3">
+            <label for="PTRATIO" class="form-label">PTRATIO</label>
+            <input type="number" class="form-control" id="PTRATIO" name="PTRATIO" required value="{{ data[10] if data else '' }}">
+        </div>
+        <div class="mb-3">
+            <label for="B" class="form-label">B</label>
+            <input type="number" class="form-control" id="B" name="B" required value="{{ data[11] if data else '' }}">
+        </div>
+        <div class="mb-3">
+            <label for="LSTAT" class="form-label">LSTAT</label>
+            <input type="number" class="form-control" id="LSTAT" name="LSTAT" required value="{{ data[12] if data else '' }}">
+        </div>
+        <button type="submit" class="btn btn-primary mt-3">Predict</button>
+    </form>
+  
+        <h2 class="text-center mt-3">{{ prediction_text }}</h2>
+ 
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
