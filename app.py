@@ -23,7 +23,7 @@ def predict_api():
     print(output[0])
     return jsonify(output[0])
 
-@app.route('/predict', methods=['Post'])
+@app.route('/predict', methods=['POST'])
 def predict():
     data=[float(x) for x in request.form.values()]
     scaled_inp=scalar.transform(np.array(data).reshape(1,-1))
@@ -34,5 +34,6 @@ def predict():
 
 if __name__=="__main__":
     app.run(debug=True)
+    ## changed to FALSE as its good practice
    
      
