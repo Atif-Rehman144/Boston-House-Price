@@ -1,14 +1,15 @@
 import json
 import pickle
-
+import os
 from flask import Flask,request,app,jsonify,url_for,render_template
 import numpy as np
 import pandas as pd
 
 app=Flask(__name__)
+base_dir = os.path.abspath(os.path.dirname(__file__))
 ## Load the model
-rfmodel=pickle.load(open('RandomForest.pkl','rb'))
-scalar=pickle.load(open('scaling.pkl','rb'))
+rfmodel=pickle.load(open(os.path.join(base_dir, 'RandomForest.pkl'),'rb'))
+scalar=pickle.load(open(os.path.join(base_dir, 'scaling.pkl'),'rb'))
 @app.route('/')
 def home():
     return render_template('home.html')
